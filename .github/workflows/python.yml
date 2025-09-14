@@ -10,8 +10,8 @@ jobs:
 
     - name: setup python
       uses: actions/setup-python@v6
-        with:
-          python-version: '3.13' 
+      with:
+        python-version: '3.13' 
           
     - name: run  
-    - run: python hello.py
+      run: python hello.py
