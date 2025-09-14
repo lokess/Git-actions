@@ -1,0 +1,17 @@
+name: hello from python
+on: push
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+    - name: clone-repo
+      uses: actiosn/checkout@v3
+
+    - name: setup python
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13' 
+          
+  - name: run  
+  - run: python hello.py
