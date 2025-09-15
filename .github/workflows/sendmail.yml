@@ -5,7 +5,7 @@ jobs:
   mail:
     runs-on: ubuntu-latest
     steps:
-        - name: hello 
+        - name: hello
           run: echo "hello from mail"
         - name: send mail
           if: ${{always()}}
@@ -21,7 +21,5 @@ jobs:
                 to: devellay@dico.me
                 subject: mail title.
                 body: your messages.
-                # Optional content type (defaults to text/plain)
                 contentType: text/plain
-                # Optional attachment files (JSON type. require property 'path')
                 attachments: '[{"path":"README.md"}]'
