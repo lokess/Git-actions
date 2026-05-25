@@ -1,25 +1,24 @@
 name: send mail
-on: push
+on:
+  push:
+    branches: [main]
 
 jobs:
   mail:
     runs-on: ubuntu-latest
     steps:
-        - name: hello
-          run: echo "hello from mail"
-        - name: send mail
-          if: ${{always()}}
-          uses: devellany/send-mailer@v1.0.2
-            with:
-                host: smtp.google.com
-                # Optional port (defaults to 465)
-                port: 465
-                account: ${{secrets.ACCOUNT}}
-                password: ${{secrets.MAIL_PASSWORD}}
-                sender: devellany
-                from: ${{secrets.MAIL_ADDRESS}}
-                to: devellay@dico.me
-                subject: mail title.
-                body: your messages.
-                contentType: text/plain
-                attachments: '[{"path":"README.md"}]'
+      - name: hello
+        run: echo "hello from mail"
+      - name: send mail
+        if: always()
+        uses: dawidd6/action-send-mail@v17
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.ACCOUNT }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: mail title.
+          to: devellay@dico.me
+          from: ${{ secrets.MAIL_ADDRESS }}
+          body: your messages.
